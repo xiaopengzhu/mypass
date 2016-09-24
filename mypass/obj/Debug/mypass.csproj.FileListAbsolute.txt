@@ -9,3 +9,5 @@ C:\c#\mypass\mypass\obj\Debug\mypass.Properties.Resources.resources
 C:\c#\mypass\mypass\obj\Debug\mypass.csproj.GenerateResource.Cache
 C:\c#\mypass\mypass\obj\Debug\mypass.exe
 C:\c#\mypass\mypass\obj\Debug\mypass.pdb
+C:\c#\mypass\mypass\obj\Debug\Interop.ADOX.dll
+C:\c#\mypass\mypass\obj\Debug\mypass.csproj.ResolveComReference.cache
