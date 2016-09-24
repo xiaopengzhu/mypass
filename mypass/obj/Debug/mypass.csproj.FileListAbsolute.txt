@@ -1,0 +1,1 @@
+C:\c#\mypass\mypass\bin\Debug\mypass.exe.config
