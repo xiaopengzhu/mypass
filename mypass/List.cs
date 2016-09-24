@@ -1,4 +1,5 @@
 ﻿using mypass.db;
+using mypass.lib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,17 +42,18 @@ namespace mypass
             var model = new Record();
             var data = model.select();
 
+            var des = new DEScode();
             listView1.Items.Clear();
             foreach (DataRow row in data)
             {
                 ListViewItem item = new ListViewItem();
                 item.SubItems.Clear();
                 item.SubItems[0].Text = row["ID"].ToString();
-                item.SubItems.Add(row["标题"].ToString());
-                item.SubItems.Add(row["账户"].ToString());
-                item.SubItems.Add(row["密码"].ToString());
-                item.SubItems.Add(row["二级密码"].ToString());
-                item.SubItems.Add(row["备注"].ToString());
+                item.SubItems.Add(des.DecryptDES(row["标题"].ToString()));
+                item.SubItems.Add(des.DecryptDES(row["账户"].ToString()));
+                item.SubItems.Add(des.DecryptDES(row["密码"].ToString()));
+                item.SubItems.Add(des.DecryptDES(row["二级密码"].ToString()));
+                item.SubItems.Add(des.DecryptDES(row["备注"].ToString()));
                 listView1.Items.Add(item);
             }
         }
@@ -65,6 +67,23 @@ namespace mypass
         private void List_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listView1.FocusedItem.Bounds.Contains(e.Location) == true)
+                {
+                    contextMenuStrip2.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var model = new Record();
+            //model.delete();
         }
     }
 }

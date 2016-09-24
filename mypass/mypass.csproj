@@ -55,6 +55,7 @@
     <Compile Include="db\Database.cs" />
     <Compile Include="db\Record.cs" />
     <Compile Include="db\User.cs" />
+    <Compile Include="lib\DEScode.cs" />
     <Compile Include="List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,7 +102,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="lib\" />
     <Folder Include="res\" />
   </ItemGroup>
   <ItemGroup>

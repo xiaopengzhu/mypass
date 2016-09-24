@@ -1,4 +1,5 @@
 ﻿using mypass.db;
+using mypass.lib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,15 @@ namespace mypass
         {
             var model = new Record();
             string[] columns = { "标题", "账户", "密码", "二级密码", "备注", "添加时间"};
-            string[] values = {textBox1.Text, textBox3.Text, textBox4.Text, textBox5.Text, richTextBox1.Text, DateTime.Now.ToString()};
+
+            var des = new DEScode();
+            string title = des.EncryptDES(textBox1.Text);
+            string account = des.EncryptDES(textBox3.Text);
+            string password = des.EncryptDES(textBox4.Text);
+            string second_password = des.EncryptDES(textBox5.Text);
+            string remark = des.EncryptDES(richTextBox1.Text);
+
+            string[] values = { title, account, password, second_password, remark, DateTime.Now.ToString()};
             model.add(columns, values);
             parent.List_Load(sender, e);
             this.Close();

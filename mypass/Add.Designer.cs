@@ -36,8 +36,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();            
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -137,9 +137,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 397);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.button1);            
             this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox1);
@@ -165,8 +165,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.RichTextBox richTextBox1;        
         private System.Windows.Forms.Button button1;
     }
 }

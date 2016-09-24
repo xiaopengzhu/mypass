@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
+using mypass.lib;
 
 namespace mypass.db
 {
@@ -25,6 +26,18 @@ namespace mypass.db
         {
             String query = "insert into 记录 ("+ string.Join(",", columns) +") " +
                 "values ('"+ string.Join("','", values) +"')";
+
+            OleDbConnection conn = Database.GetConnection();
+            OleDbCommand comm = new OleDbCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+            return 1;
+        }
+
+        public int delete(int id)
+        {
+
+            String query = "delete from 记录 where id=" + id;
 
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
