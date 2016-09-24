@@ -1,1 +1,11 @@
 C:\c#\mypass\mypass\bin\Debug\mypass.exe.config
+C:\c#\mypass\mypass\bin\Debug\mypass.exe
+C:\c#\mypass\mypass\bin\Debug\mypass.pdb
+C:\c#\mypass\mypass\obj\Debug\mypass.csprojResolveAssemblyReference.cache
+C:\c#\mypass\mypass\obj\Debug\mypass.Add.resources
+C:\c#\mypass\mypass\obj\Debug\mypass.List.resources
+C:\c#\mypass\mypass\obj\Debug\mypass.Login.resources
+C:\c#\mypass\mypass\obj\Debug\mypass.Properties.Resources.resources
+C:\c#\mypass\mypass\obj\Debug\mypass.csproj.GenerateResource.Cache
+C:\c#\mypass\mypass\obj\Debug\mypass.exe
+C:\c#\mypass\mypass\obj\Debug\mypass.pdb

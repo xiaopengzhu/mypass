@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace mypass
 {
-    public partial class Form1 : Form
+    public partial class List : Form
     {
-        public Form1()
+        public List()
         {
             InitializeComponent();
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
