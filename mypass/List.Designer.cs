@@ -52,7 +52,7 @@
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(638, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(599, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,7 +70,7 @@
             // 新建ToolStripMenuItem
             // 
             this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.新建ToolStripMenuItem.Text = "新建";
             this.新建ToolStripMenuItem.Click += new System.EventHandler(this.新建ToolStripMenuItem_Click);
             // 
@@ -138,7 +138,7 @@
             // 
             this.listView1.Location = new System.Drawing.Point(12, 31);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(614, 209);
+            this.listView1.Size = new System.Drawing.Size(576, 209);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -146,12 +146,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 250);
+            this.ClientSize = new System.Drawing.Size(599, 250);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "List";
             this.Text = "密码管理器";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.List_FormClosed);
             this.Load += new System.EventHandler(this.List_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
