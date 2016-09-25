@@ -57,7 +57,7 @@
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(599, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(684, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -143,7 +143,7 @@
             // 
             this.listView1.Location = new System.Drawing.Point(12, 31);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(576, 209);
+            this.listView1.Size = new System.Drawing.Size(660, 370);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
@@ -154,7 +154,7 @@
             this.编辑ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(101, 48);
             // 
             // 编辑ToolStripMenuItem
             // 
@@ -165,7 +165,7 @@
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 248);
+            this.ClientSize = new System.Drawing.Size(684, 412);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

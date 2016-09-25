@@ -32,12 +32,12 @@ namespace mypass
             listView1.View = View.Details;
 
             listView1.Columns.Clear();
-            listView1.Columns.Add("ID",  40, HorizontalAlignment.Center);
-            listView1.Columns.Add("标题", 80, HorizontalAlignment.Center);
-            listView1.Columns.Add("帐号", 80, HorizontalAlignment.Center);
-            listView1.Columns.Add("密码", 80, HorizontalAlignment.Center);
-            listView1.Columns.Add("二级密码", 80, HorizontalAlignment.Center);
-            listView1.Columns.Add("备注", 160, HorizontalAlignment.Center);
+            listView1.Columns.Add("ID",  60, HorizontalAlignment.Center);
+            listView1.Columns.Add("标题", 100, HorizontalAlignment.Center);
+            listView1.Columns.Add("帐号", 100, HorizontalAlignment.Center);
+            listView1.Columns.Add("密码", 100, HorizontalAlignment.Center);
+            listView1.Columns.Add("二级密码", 100, HorizontalAlignment.Center);
+            listView1.Columns.Add("备注", 196, HorizontalAlignment.Center);
 
             var model = new Record();
             var data = model.select();
