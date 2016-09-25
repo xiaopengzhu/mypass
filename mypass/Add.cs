@@ -28,6 +28,7 @@ namespace mypass
                 if (dr != null) {
                     var des = new DEScode();
                     textBox1.Text = des.DecryptDES(dr["标题"].ToString());
+                    textBox2.Text = des.DecryptDES(dr["网址"].ToString());
                     textBox3.Text = des.DecryptDES(dr["账户"].ToString());
                     textBox4.Text = des.DecryptDES(dr["密码"].ToString());
                     textBox5.Text = des.DecryptDES(dr["二级密码"].ToString());
@@ -41,16 +42,17 @@ namespace mypass
         private void button1_Click(object sender, EventArgs e)
         {
             var model = new Record();
-            string[] columns = { "标题", "账户", "密码", "二级密码", "备注", "添加时间"};
+            string[] columns = { "标题", "网址", "账户", "密码", "二级密码", "备注", "添加时间"};
 
             var des = new DEScode();
             string title = des.EncryptDES(textBox1.Text);
+            string website = des.EncryptDES(textBox2.Text);
             string account = des.EncryptDES(textBox3.Text);
             string password = des.EncryptDES(textBox4.Text);
             string second_password = des.EncryptDES(textBox5.Text);
             string remark = des.EncryptDES(richTextBox1.Text);
 
-            string[] values = { title, account, password, second_password, remark, DateTime.Now.ToString()};
+            string[] values = { title, website, account, password, second_password, remark, DateTime.Now.ToString()};
             if (this.id > 0)
             {
                 model.update(this.id, columns, values);

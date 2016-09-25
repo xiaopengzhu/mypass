@@ -36,6 +36,7 @@ namespace mypass
             listView1.Columns.Clear();
             listView1.Columns.Add("ID",  60, HorizontalAlignment.Center);
             listView1.Columns.Add("标题", 100, HorizontalAlignment.Center);
+            listView1.Columns.Add("网址", 100, HorizontalAlignment.Center);
             listView1.Columns.Add("帐号", 100, HorizontalAlignment.Center);
             listView1.Columns.Add("密码", 100, HorizontalAlignment.Center);
             listView1.Columns.Add("二级密码", 100, HorizontalAlignment.Center);
@@ -52,6 +53,7 @@ namespace mypass
                 item.SubItems.Clear();
                 item.SubItems[0].Text = row["ID"].ToString();
                 item.SubItems.Add(des.DecryptDES(row["标题"].ToString()));
+                item.SubItems.Add(des.DecryptDES(row["网址"].ToString()));
                 item.SubItems.Add(des.DecryptDES(row["账户"].ToString()));
                 item.SubItems.Add(des.DecryptDES(row["密码"].ToString()));
                 item.SubItems.Add(des.DecryptDES(row["二级密码"].ToString()));
