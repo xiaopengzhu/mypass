@@ -96,6 +96,7 @@
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
             this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.修改密码ToolStripMenuItem.Text = "修改密码";
+            this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem
             // 
@@ -111,25 +112,26 @@
             // 捐赠ToolStripMenuItem
             // 
             this.捐赠ToolStripMenuItem.Name = "捐赠ToolStripMenuItem";
-            this.捐赠ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.捐赠ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.捐赠ToolStripMenuItem.Text = "捐赠";
+            this.捐赠ToolStripMenuItem.Click += new System.EventHandler(this.捐赠ToolStripMenuItem_Click);
             // 
             // 在线升级ToolStripMenuItem
             // 
             this.在线升级ToolStripMenuItem.Name = "在线升级ToolStripMenuItem";
-            this.在线升级ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.在线升级ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.在线升级ToolStripMenuItem.Text = "在线升级";
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.关于ToolStripMenuItem.Text = "关于";
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 

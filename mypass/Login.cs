@@ -14,12 +14,15 @@ namespace mypass
 {
     public partial class Login : Form
     {
+        //构造函数
         public Login()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            //如果没有用户则启动创建用户窗体
         }
 
+        //登录
         private void button1_Click(object sender, EventArgs e)
         {
             string account = textBox1.Text;
@@ -40,11 +43,7 @@ namespace mypass
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //关闭
         private void label3_Click(object sender, EventArgs e)
         {
             Application.Exit();

@@ -9,6 +9,7 @@ namespace mypass.db
 {
     class User
     {
+        //登录
         public int login(string account, string password)
         {
             var query = "select * from 用户 where 账户='" + account + "' and 密码='" + password +"'";

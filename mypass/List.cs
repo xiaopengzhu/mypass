@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,19 +15,20 @@ namespace mypass
 {
     public partial class List : Form
     {
+        //构造函数
         public List()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
-            Console.WriteLine(System.Windows.Forms.Application.StartupPath);
         }
 
+        //退出
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //页面加载
         public void List_Load(object sender, EventArgs e)
         {
             listView1.GridLines = true;
@@ -62,17 +64,20 @@ namespace mypass
             }
         }
 
+        //新建
         private void 新建ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var add = new Add(this);
             add.ShowDialog();
         }
 
+        //关闭
         private void List_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
+        //右键菜单
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -87,6 +92,7 @@ namespace mypass
             }
         }
 
+        //右键删除
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("确定要删除该项，该操作不可恢复", "删除确认", MessageBoxButtons.OKCancel);
@@ -108,6 +114,7 @@ namespace mypass
             }
         }
 
+        //右键编辑
         private void 编辑ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string idstr = listView1.SelectedItems[0].SubItems[0].Text;
@@ -115,6 +122,18 @@ namespace mypass
 
             var update = new Add(this, id);
             update.ShowDialog();
+        }
+
+        //捐赠
+        private void 捐赠ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("iexplore.exe", "http://www.baidu.com");
+        }
+
+        //修改密码
+        private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

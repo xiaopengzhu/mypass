@@ -11,6 +11,7 @@ namespace mypass.db
 {
     class Record
     {
+        //列表
         public DataRowCollection select()
         {
             DataSet ds = new DataSet();
@@ -22,6 +23,7 @@ namespace mypass.db
             return dt.Rows;
         }
 
+        //增
         public int add(string[] columns, string[] values)
         {
             String query = "insert into 记录 ("+ string.Join(",", columns) +") " +
@@ -34,6 +36,7 @@ namespace mypass.db
             return 1;
         }
 
+        //删
         public int delete(int id)
         {
 
@@ -46,6 +49,7 @@ namespace mypass.db
             return 1;
         }
 
+        //查
         public DataRow get(int id)
         {
             DataSet ds = new DataSet();
@@ -57,6 +61,7 @@ namespace mypass.db
             return dt.Rows[0];
         }
 
+        //改
         public int update(int id, string[] columns, string[] values)
         {
             if (columns.Length == values.Length)

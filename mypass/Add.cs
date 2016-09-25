@@ -16,6 +16,8 @@ namespace mypass
     {
         List parent;
         int id;
+
+        //构造函数
         public Add(List list, int id = 0)
         {            
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace mypass
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        //新增或者编辑保存
         private void button1_Click(object sender, EventArgs e)
         {
             var model = new Record();

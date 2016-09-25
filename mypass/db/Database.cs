@@ -10,6 +10,7 @@ namespace mypass.db
 {
     class Database
     {
+        //建立连接
         public static OleDbConnection GetConnection()
         {
             OleDbConnection conn = new OleDbConnection();
@@ -27,6 +28,7 @@ namespace mypass.db
             return conn;
         }
 
+        //关闭连接
         public static void CloseConnection(OleDbConnection conn)
         {
             try
