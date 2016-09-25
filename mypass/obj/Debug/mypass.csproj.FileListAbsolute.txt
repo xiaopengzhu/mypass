@@ -11,3 +11,4 @@ C:\c#\mypass\mypass\obj\Debug\mypass.exe
 C:\c#\mypass\mypass\obj\Debug\mypass.pdb
 C:\c#\mypass\mypass\obj\Debug\Interop.ADOX.dll
 C:\c#\mypass\mypass\obj\Debug\mypass.csproj.ResolveComReference.cache
+C:\c#\mypass\mypass\bin\Debug\res\mypass.accdb

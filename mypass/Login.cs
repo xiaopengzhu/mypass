@@ -39,5 +39,15 @@ namespace mypass
                 MessageBox.Show("用户名或密码错误");
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

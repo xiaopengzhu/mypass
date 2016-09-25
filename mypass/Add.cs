@@ -15,10 +15,26 @@ namespace mypass
     public partial class Add : Form
     {
         List parent;
-        public Add(List list)
+        int id;
+        public Add(List list, int id = 0)
         {            
             InitializeComponent();
             this.parent = list;
+            this.id = id;
+
+            if (this.id > 0) {
+                var model = new Record();
+                DataRow dr = model.get(this.id);
+                if (dr != null) {
+                    var des = new DEScode();
+                    textBox1.Text = des.DecryptDES(dr["标题"].ToString());
+                    textBox3.Text = des.DecryptDES(dr["账户"].ToString());
+                    textBox4.Text = des.DecryptDES(dr["密码"].ToString());
+                    textBox5.Text = des.DecryptDES(dr["二级密码"].ToString());
+                    richTextBox1.Text = des.DecryptDES(dr["备注"].ToString());
+                }
+            }
+
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -35,14 +51,17 @@ namespace mypass
             string remark = des.EncryptDES(richTextBox1.Text);
 
             string[] values = { title, account, password, second_password, remark, DateTime.Now.ToString()};
-            model.add(columns, values);
+            if (this.id > 0)
+            {
+                model.update(this.id, columns, values);
+            }
+            else
+            {
+                model.add(columns, values);
+            }             
+
             parent.List_Load(sender, e);
             this.Close();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

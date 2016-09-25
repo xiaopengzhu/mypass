@@ -16,7 +16,7 @@ namespace mypass.db
             try
             {
                 String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;"
-               + @"Data Source=D:\mypass.accdb";
+               + @"Data Source=" + System.Windows.Forms.Application.StartupPath + "\\res\\mypass.accdb";
                 conn = new OleDbConnection(connectionString);
                 conn.Open();
             }

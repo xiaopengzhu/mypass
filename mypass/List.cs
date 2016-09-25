@@ -18,6 +18,8 @@ namespace mypass
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            Console.WriteLine(System.Windows.Forms.Application.StartupPath);
         }
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +77,9 @@ namespace mypass
             {
                 if (listView1.FocusedItem.Bounds.Contains(e.Location) == true)
                 {
+
+                    
+
                     contextMenuStrip2.Show(Cursor.Position);
                 }
             }
@@ -82,8 +87,32 @@ namespace mypass
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var model = new Record();
-            //model.delete();
+            DialogResult dr = MessageBox.Show("确定要删除该项，该操作不可恢复", "删除确认", MessageBoxButtons.OKCancel);
+
+            if (dr == DialogResult.OK)
+            {
+                string idstr = listView1.SelectedItems[0].SubItems[0].Text;
+                int id = int.Parse(idstr);
+
+                var model = new Record();
+                model.delete(id);
+
+                List_Load(sender, e);
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void 编辑ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string idstr = listView1.SelectedItems[0].SubItems[0].Text;
+            int id = int.Parse(idstr);
+
+            var update = new Add(this, id);
+            update.ShowDialog();
         }
     }
 }
