@@ -117,15 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>137, 17</value>
-  </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>302, 17</value>
-  </metadata>
+  <data name="label1.Text" xml:space="preserve">
+    <value>经常忘记密码我相信是所有人都遇到过的事，所以很多人在各种网站上都设置了同一个密码，这是件风险很大的事情。为了记住越来越多的密码，我们尝试过各种方法，比如记在自己的空间，或用电脑上的一个文档，这样同样也是不安全的。基于以上刚需开发了这款小软件，数据全部是经过非常高的加密手段存储的，即使被他人拿到存储文件而没有此软件的登录密码也是无法解开的，而你只需要记住一个登录密码即可。该软件的所有数据都存储在本地，所以是非常安全的。当然万事无绝对，记录时适当加一些暗号是推荐的行为。</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

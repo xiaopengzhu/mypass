@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ADOX;
 using System.Data.OleDb;
+using System.IO;
 
 namespace mypass.db
 {
@@ -17,7 +18,8 @@ namespace mypass.db
             try
             {
                 String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;"
-               + @"Data Source=" + System.Windows.Forms.Application.StartupPath + "\\res\\mypass.accdb";
+                + @"Data Source=" + System.Windows.Forms.Application.StartupPath + "\\res\\mypass.accdb;"
+                + "Jet OLEDB:Database Password=mypass2016";
                 conn = new OleDbConnection(connectionString);
                 conn.Open();
             }
@@ -28,16 +30,48 @@ namespace mypass.db
             return conn;
         }
 
-        //关闭连接
-        public static void CloseConnection(OleDbConnection conn)
+        //判断数据库是否存在
+        //没有则新建
+        public static bool CheckDatabase()
         {
-            try
+            string path = @System.Windows.Forms.Application.StartupPath + "\\res\\mypass2.accdb";
+            if (!File.Exists(path))
             {
-                conn.Close();
+                //建库
+                ADOX.Catalog catalog = new Catalog();
+                catalog.Create(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path 
+                    + " ;Jet OLEDB:Engine Type=5;Jet OLEDB:Database Password=mypass2016");
+                //建表
+                String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;"
+                + @"Data Source=" + System.Windows.Forms.Application.StartupPath + "\\res\\mypass2.accdb;"
+                + "Jet OLEDB:Database Password=mypass2016";
+                OleDbConnection conn = new OleDbConnection(connectionString);
+                if (conn.ToString().Length > 0)
+                {
+                    //添加用户表
+                    Catalog cat = new Catalog();
+                    ADODB.Connection cn = new ADODB.Connection();
+                    cn.Open(connectionString, null, null, -1);
+                    catalog.ActiveConnection = cn;
+                    Table table = new Table();
+                    table.Name = "用户";
+                    catalog.Tables.Append(table);
+                    
+
+
+                    //添加记录表
+
+                    cn.Close();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }      
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.Message);
+                return true;
             }
         }
     }

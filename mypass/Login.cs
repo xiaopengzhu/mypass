@@ -16,30 +16,27 @@ namespace mypass
     {
         //构造函数
         public Login()
-        {
+        {            
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            //如果没有用户则启动创建用户窗体
+            Database.CheckDatabase();                     
         }
 
         //登录
         private void button1_Click(object sender, EventArgs e)
         {
             string account = textBox1.Text;
-            byte[] password = Encoding.Default.GetBytes(textBox2.Text.Trim());
-            MD5 md5 = new MD5CryptoServiceProvider();
-            password = md5.ComputeHash(password);
-            string md5pass = BitConverter.ToString(password).Replace("-", "").ToLower();
+            string password = textBox2.Text;
             
             var model = new User();
-            if (model.login(account, md5pass) == 0)
+            if (model.login(account, password) == 0)
             {
                 var list = new List();
                 list.Show();
                 this.Visible = false;
             }
             else {
-                MessageBox.Show("用户名或密码错误");
+                MessageBox.Show("用户名或密码错误", "错误提示");
             }
         }
 
