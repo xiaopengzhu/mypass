@@ -39,17 +39,29 @@ namespace mypass.db
             {
                 //建库
                 ADOX.Catalog catalog = new Catalog();
-                catalog.Create(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + " ;Jet OLEDB:Engine Type=5");
+                catalog.Create(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path 
+                    + " ;Jet OLEDB:Engine Type=5;Jet OLEDB:Database Password=mypass2016");
                 //建表
-                OleDbConnection conn = GetConnection();
+                String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;"
+                + @"Data Source=" + System.Windows.Forms.Application.StartupPath + "\\res\\mypass2.accdb;"
+                + "Jet OLEDB:Database Password=mypass2016";
+                OleDbConnection conn = new OleDbConnection(connectionString);
                 if (conn.ToString().Length > 0)
                 {
-                    string query = "create table 用户 ([ID] AutoNumber , [账户] Text, [密码] Text)";
-                    OleDbCommand comm = new OleDbCommand(query, conn);
-                    comm.ExecuteNonQuery();
+                    //添加用户表
+                    Catalog cat = new Catalog();
+                    ADODB.Connection cn = new ADODB.Connection();
+                    cn.Open(connectionString, null, null, -1);
+                    catalog.ActiveConnection = cn;
+                    Table table = new Table();
+                    table.Name = "用户";
+                    catalog.Tables.Append(table);
+                    
 
 
-                    conn.Close();
+                    //添加记录表
+
+                    cn.Close();
                     return true;
                 }
                 else
