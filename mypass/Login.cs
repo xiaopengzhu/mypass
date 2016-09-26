@@ -18,7 +18,8 @@ namespace mypass
         public Login()
         {            
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;                        
+            this.StartPosition = FormStartPosition.CenterScreen;
+            Database.CheckDatabase();                     
         }
 
         //登录
@@ -28,14 +29,14 @@ namespace mypass
             string password = textBox2.Text;
             
             var model = new User();
-            if (model.login(account, password) != 0)
+            if (model.login(account, password) == 0)
             {
                 var list = new List();
                 list.Show();
                 this.Visible = false;
             }
             else {
-                MessageBox.Show("用户名或密码错误");
+                MessageBox.Show("用户名或密码错误", "错误提示");
             }
         }
 

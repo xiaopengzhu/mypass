@@ -18,9 +18,12 @@ namespace mypass.db
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
 
-            if (comm.ExecuteScalar() != null)
+            var obj = comm.ExecuteScalar();
+            conn.Close();
+
+            if (obj != null)
             {
-                return (int)comm.ExecuteScalar();
+                return (int)obj;
             }
             else
             {
@@ -41,9 +44,9 @@ namespace mypass.db
 
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
-            comm.ExecuteNonQuery();
+            int num = comm.ExecuteNonQuery();
             conn.Close();
-            return 1;
+            return num;
         }
 
         //登录
@@ -58,11 +61,14 @@ namespace mypass.db
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
 
-            if (comm.ExecuteScalar()!=null)
+            var obj = comm.ExecuteScalar();
+            conn.Close();
+
+            if (obj!=null)
             {
                 Session.account = account;
                 Session.password = password;
-                return (int)comm.ExecuteScalar();
+                return 1;
             }
             else {
                 return 0;
@@ -82,10 +88,13 @@ namespace mypass.db
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
 
-            if (comm.ExecuteScalar() != null)
+            var obj = comm.ExecuteScalar();
+            conn.Close();
+
+            if (obj != null)
             {
                 Session.account = account;
-                return (int)comm.ExecuteScalar();
+                return 1;
             }
             else
             {

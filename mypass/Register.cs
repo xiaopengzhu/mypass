@@ -29,10 +29,10 @@ namespace mypass
 
             if (account.Length < 1 || password.Length < 8)
             {
-                MessageBox.Show("账户为空或密码长度小于8位");
+                MessageBox.Show("账户为空或密码长度小于8位", "错误提示");
             } else if (password != confirm_password)
             {
-                MessageBox.Show("二次密码不匹配");
+                MessageBox.Show("二次密码不匹配", "错误提示");
             }
             else
             {
@@ -44,7 +44,7 @@ namespace mypass
                 }
                 else
                 {
-                    MessageBox.Show("注册失败");
+                    MessageBox.Show("注册失败", "错误提示");
                 }
             }
         }

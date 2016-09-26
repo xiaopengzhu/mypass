@@ -45,18 +45,18 @@ namespace mypass
                     }
                     else
                     {
-                        MessageBox.Show("重置失败");
+                        MessageBox.Show("重置失败", "错误提示");
                     }
                     
                 }
                 else
                 {
-                    MessageBox.Show("新密码长度小于8或二次密码不匹配");
+                    MessageBox.Show("新密码长度小于8或二次密码不匹配", "错误提示");
                 }
             }
             else
             {
-                MessageBox.Show("密码不对!");
+                MessageBox.Show("密码不对!", "错误提示");
             }                        
         }
     }

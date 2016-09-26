@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resetpwd));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,7 +67,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button1.BackColor = System.Drawing.Color.AliceBlue;
             this.button1.Location = new System.Drawing.Point(130, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 36);
@@ -109,6 +110,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Resetpwd";
             this.Text = "修改密码";
             this.ResumeLayout(false);

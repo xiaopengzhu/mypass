@@ -57,7 +57,7 @@ namespace mypass
 
             if (textBox1.Text.Trim().Length < 1 || textBox3.Text.Trim().Length < 1 || textBox4.Text.Trim().Length < 1)
             {
-                MessageBox.Show("缺少必填参数");
+                MessageBox.Show("缺少必填参数", "错误提示");
             }
             else
             {

@@ -62,6 +62,7 @@
     <Compile Include="db\Record.cs" />
     <Compile Include="db\User.cs" />
     <Compile Include="lib\DEScode.cs" />
+    <Compile Include="lib\Http.cs" />
     <Compile Include="lib\Session.cs" />
     <Compile Include="List.cs">
       <SubType>Form</SubType>

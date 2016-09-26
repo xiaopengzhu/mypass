@@ -15,6 +15,7 @@ namespace mypass
         public About()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

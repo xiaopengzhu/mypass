@@ -31,9 +31,9 @@ namespace mypass.db
 
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
-            comm.ExecuteNonQuery();
+            int num = comm.ExecuteNonQuery();
             conn.Close();
-            return 1;
+            return num;
         }
 
         //删
@@ -44,9 +44,9 @@ namespace mypass.db
 
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
-            comm.ExecuteNonQuery();
+            int num = comm.ExecuteNonQuery();
             conn.Close();
-            return 1;
+            return num;
         }
 
         //查
@@ -76,10 +76,9 @@ namespace mypass.db
 
                 OleDbConnection conn = Database.GetConnection();
                 OleDbCommand comm = new OleDbCommand(query, conn);
-                comm.ExecuteNonQuery();
+                int num = comm.ExecuteNonQuery();
                 conn.Close();
-                
-                return 1;
+                return num;
             }
             else
             {
@@ -94,13 +93,13 @@ namespace mypass.db
 
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
-            comm.ExecuteNonQuery();
+            int num = comm.ExecuteNonQuery();
             conn.Close();
-            return 1;
+            return num;
         }
 
         //重新加密
-        public int rebuild(string old_password, string new_password)
+        public void rebuild(string old_password, string new_password)
         {
             DataRowCollection drc = this.select();
             var old_des = new DEScode(old_password);
@@ -120,7 +119,6 @@ namespace mypass.db
 
                 this.update(id, columns, values);
             }
-            return 1;
         }
     }
 }

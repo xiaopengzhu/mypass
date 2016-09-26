@@ -31,6 +31,7 @@ namespace mypass
         //页面加载
         public void List_Load(object sender, EventArgs e)
         {
+            //渲染listview
             listView1.GridLines = true;
             listView1.FullRowSelect = true;
             listView1.View = View.Details;
@@ -62,6 +63,8 @@ namespace mypass
                 item.SubItems.Add(des.DecryptDES(row["备注"].ToString()));
                 listView1.Items.Add(item);
             }
+            //渲染状态栏
+            toolStripStatusLabel1.Text = "欢迎光临，" + Session.account;
         }
 
         //新建
@@ -106,7 +109,6 @@ namespace mypass
                 model.delete(id);
 
                 List_Load(sender, e);
-
             }
             else
             {
@@ -127,7 +129,7 @@ namespace mypass
         //捐赠
         private void 捐赠ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("iexplore.exe", "http://www.baidu.com");
+            Process.Start("iexplore.exe", "http://www.xpcms.net/mypass/donate");
         }
 
 
@@ -152,6 +154,38 @@ namespace mypass
         {
             var reset = new Resetpwd();
             reset.ShowDialog();
+        }
+
+        //在线升级
+        private void 在线升级ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string url = "http://www.xpcms.net/mypass/upgrade";
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(Application.ExecutablePath);
+            string version = fvi.FileVersion;
+
+            string new_version = Http.get(url);
+
+            if (new_version == version)
+            {
+                MessageBox.Show("当前版本已经是最新，无需更新", "提示信息");
+            }
+            else
+            {
+                DialogResult dr = MessageBox.Show("有可用更新，是否要进行升级", "升级确认", MessageBoxButtons.OKCancel);
+
+                if (dr == DialogResult.OK)
+                {
+                    Console.WriteLine("升级中");
+                }
+            }
+
+        }
+
+        //关于
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var about = new About();
+            about.Show();
         }
     }
 }
