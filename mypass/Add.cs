@@ -55,18 +55,26 @@ namespace mypass
             string second_password = des.EncryptDES(textBox5.Text);
             string remark = des.EncryptDES(richTextBox1.Text);
 
-            string[] values = { title, website, account, password, second_password, remark, DateTime.Now.ToString()};
-            if (this.id > 0)
+            if (textBox1.Text.Trim().Length < 1 || textBox3.Text.Trim().Length < 1 || textBox4.Text.Trim().Length < 1)
             {
-                model.update(this.id, columns, values);
+                MessageBox.Show("缺少必填参数");
             }
             else
             {
-                model.add(columns, values);
-            }             
+                string[] values = { title, website, account, password, second_password, remark, DateTime.Now.ToString() };
+                if (this.id > 0)
+                {
+                    model.update(this.id, columns, values);
+                }
+                else
+                {
+                    model.add(columns, values);
+                }
 
-            parent.List_Load(sender, e);
-            this.Close();
+                parent.List_Load(sender, e);
+                this.Close();
+            }
+
         }
     }
 }

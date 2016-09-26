@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mypass.db;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,16 @@ namespace mypass
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+
+            var model = new User();
+            if (model.check() == 0)
+            {
+                Application.Run(new Register());
+            }
+            else
+            {
+                Application.Run(new Login());
+            }            
         }
     }
 }

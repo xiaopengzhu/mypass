@@ -86,5 +86,24 @@ namespace mypass.db
                 return 0;
             }
         }
+
+        //清空
+        public int clear()
+        {
+            String query = "delete * from 记录";
+
+            OleDbConnection conn = Database.GetConnection();
+            OleDbCommand comm = new OleDbCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+            return 1;
+        }
+
+        //重新加密
+        public int rebuild(string password, string new_password)
+        {
+
+            return 1;
+        }
     }
 }

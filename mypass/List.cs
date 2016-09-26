@@ -130,10 +130,28 @@ namespace mypass
             Process.Start("iexplore.exe", "http://www.baidu.com");
         }
 
-        //修改密码
-        private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+        //清空
+        private void 清空ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确定要清空记录，该操作不可恢复", "删除确认", MessageBoxButtons.OKCancel);
+
+            if (dr == DialogResult.OK)
+            {
+                var model = new Record();
+                model.clear();
+
+                List_Load(sender, e);
+
+            }
+
+        }
+
+        //修改密码
+        private void 修改密码ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var reset = new Resetpwd();
+            reset.ShowDialog();
         }
     }
 }
