@@ -28,7 +28,7 @@ namespace mypass
             string password = textBox2.Text;
             
             var model = new User();
-            if (model.login(account, password) == 0)
+            if (model.login(account, password) != 0)
             {
                 var list = new List();
                 list.Show();

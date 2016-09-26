@@ -31,6 +31,7 @@ namespace mypass.db
         //注册
         public int register(string account, string password)
         {
+            if (password.Length < 8) return 0;
             byte[] tmp = Encoding.Default.GetBytes(password.Trim());
             MD5 md5 = new MD5CryptoServiceProvider();
             tmp = md5.ComputeHash(tmp);
@@ -60,6 +61,7 @@ namespace mypass.db
             if (comm.ExecuteScalar()!=null)
             {
                 Session.account = account;
+                Session.password = password;
                 return (int)comm.ExecuteScalar();
             }
             else {
@@ -70,6 +72,7 @@ namespace mypass.db
         //重设密码
         public int reset(string account, string password)
         {
+            if (password.Length < 8) return 0;
             byte[] tmp = Encoding.Default.GetBytes(password.Trim());
             MD5 md5 = new MD5CryptoServiceProvider();
             tmp = md5.ComputeHash(tmp);

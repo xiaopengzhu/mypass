@@ -10,7 +10,12 @@ namespace mypass.lib
 {
     class DEScode
     {
-        private string CodeKey = "123456789";
+        private string CodeKey = "1234567";
+
+        public DEScode(string key)
+        {
+            this.CodeKey = key;
+        }
 
         /// <summary>
         /// DES加密
@@ -29,7 +34,7 @@ namespace mypass.lib
         }
 
         //默认密钥向量
-        private byte[] Keys = { 0xEF, 0xAB, 0x56, 0x78, 0x90, 0x34, 0xCD, 0x12 };
+        private byte[] Keys = { 0xEF, 0x8C, 0x7A, 0xA4, 0xDC, 0x81, 0x2A, 0xE8 };
 
         /// <summary>
         /// DES加密

@@ -27,9 +27,9 @@ namespace mypass
             string password = textBox2.Text.Trim();
             string confirm_password = textBox3.Text.Trim();
 
-            if (account.Length < 1 || password.Length < 1)
+            if (account.Length < 1 || password.Length < 8)
             {
-                MessageBox.Show("必填参数不能为空");
+                MessageBox.Show("账户为空或密码长度小于8位");
             } else if (password != confirm_password)
             {
                 MessageBox.Show("二次密码不匹配");

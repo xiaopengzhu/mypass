@@ -28,7 +28,7 @@ namespace mypass
                 var model = new Record();
                 DataRow dr = model.get(this.id);
                 if (dr != null) {
-                    var des = new DEScode();
+                    var des = new DEScode(Session.password);
                     textBox1.Text = des.DecryptDES(dr["标题"].ToString());
                     textBox2.Text = des.DecryptDES(dr["网址"].ToString());
                     textBox3.Text = des.DecryptDES(dr["账户"].ToString());
@@ -47,7 +47,7 @@ namespace mypass
             var model = new Record();
             string[] columns = { "标题", "网址", "账户", "密码", "二级密码", "备注", "添加时间"};
 
-            var des = new DEScode();
+            var des = new DEScode(Session.password);
             string title = des.EncryptDES(textBox1.Text);
             string website = des.EncryptDES(textBox2.Text);
             string account = des.EncryptDES(textBox3.Text);

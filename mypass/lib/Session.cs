@@ -9,5 +9,6 @@ namespace mypass.lib
     public static class Session
     {
         public static string account;
+        public static string password;
     }
 }

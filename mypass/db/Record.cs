@@ -100,9 +100,26 @@ namespace mypass.db
         }
 
         //重新加密
-        public int rebuild(string password, string new_password)
+        public int rebuild(string old_password, string new_password)
         {
+            DataRowCollection drc = this.select();
+            var old_des = new DEScode(old_password);
+            var new_des = new DEScode(new_password);
+            foreach (DataRow row in drc)
+            {
+                int id = int.Parse(row["ID"].ToString());
+                string title = new_des.EncryptDES(old_des.DecryptDES(row["标题"].ToString()));
+                string website = new_des.EncryptDES(old_des.DecryptDES(row["网址"].ToString()));
+                string account = new_des.EncryptDES(old_des.DecryptDES(row["账户"].ToString()));
+                string password = new_des.EncryptDES(old_des.DecryptDES(row["密码"].ToString()));
+                string second_password = new_des.EncryptDES(old_des.DecryptDES(row["二级密码"].ToString()));
+                string remark = new_des.EncryptDES(old_des.DecryptDES(row["备注"].ToString()));
+                
+                string[] columns = { "标题", "网址", "账户", "密码", "二级密码", "备注"};
+                string[] values = {title, website, account, password, second_password, remark };
 
+                this.update(id, columns, values);
+            }
             return 1;
         }
     }

@@ -33,13 +33,13 @@ namespace mypass
 
             if (check > 0)
             {
-                if (new_pwd == confirm_pwd)
+                if (new_pwd.Length >=8 && new_pwd == confirm_pwd)
                 {
                     if (model.reset(account, new_pwd) > 0)
                     {
                         //重新加密整个记录表
-
-
+                        var record = new Record();
+                        record.rebuild(pwd, new_pwd);
                         //重启程序
                         Application.Restart();
                     }
@@ -51,7 +51,7 @@ namespace mypass
                 }
                 else
                 {
-                    MessageBox.Show("二次密码不匹配");
+                    MessageBox.Show("新密码长度小于8或二次密码不匹配");
                 }
             }
             else

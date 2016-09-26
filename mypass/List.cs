@@ -47,7 +47,7 @@ namespace mypass
             var model = new Record();
             var data = model.select();
 
-            var des = new DEScode();
+            var des = new DEScode(Session.password);
             listView1.Items.Clear();
             foreach (DataRow row in data)
             {
