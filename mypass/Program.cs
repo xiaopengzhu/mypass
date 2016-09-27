@@ -18,6 +18,8 @@ namespace mypass
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Database.CreateDb();
+
             var model = new User();
             if (model.check() == 0)
             {

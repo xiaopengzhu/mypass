@@ -19,7 +19,6 @@ namespace mypass
         {            
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            Database.CheckDatabase();                     
         }
 
         //登录

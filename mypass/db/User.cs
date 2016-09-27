@@ -1,4 +1,5 @@
-﻿using mypass.lib;
+﻿using ADOX;
+using mypass.lib;
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
@@ -11,6 +12,23 @@ namespace mypass.db
 {
     class User
     {
+        //建表
+        public void CreateTable()
+        {
+            OleDbConnection conn = Database.GetConnection();
+
+            if (conn.ToString().Length > 0)
+            {
+                string sql = @"CREATE TABLE [用户] "
+                + "([ID] Counter primary key, [账户] VarChar(255), "
+                + "[密码] VarChar(255), [登录时间] DateTime);";
+
+                OleDbCommand comm = new OleDbCommand(sql, conn);
+                comm.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
+
         //判断是否注册
         public int check()
         {

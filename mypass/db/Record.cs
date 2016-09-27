@@ -11,6 +11,25 @@ namespace mypass.db
 {
     class Record
     {
+        //建表
+        public void CreateTable()
+        {
+            OleDbConnection conn = Database.GetConnection();
+
+            if (conn.ToString().Length > 0)
+            {
+                string sql = @"CREATE TABLE [记录] "
+                + "([ID] Counter primary key, [标题] VarChar(255), "
+                + "[网址] VarChar(255), [账户] VarChar(255), "
+                + "[密码] VarChar(255), [二级密码] VarChar(255), "
+                + "[备注] Text, [添加时间] DateTime);";
+
+                OleDbCommand comm = new OleDbCommand(sql, conn);
+                comm.ExecuteNonQuery();
+            }
+            conn.Close();
+        }
+
         //列表
         public DataRowCollection select()
         {
