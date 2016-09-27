@@ -17,7 +17,7 @@ namespace mypass
         public Detail(int id)
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterParent;
 
             var model = new Record();
             DataRow dr = model.get(id);

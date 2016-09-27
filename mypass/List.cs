@@ -181,7 +181,7 @@ namespace mypass
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var about = new About();
-            about.Show();
+            about.ShowDialog();
         }
 
         //查看详情

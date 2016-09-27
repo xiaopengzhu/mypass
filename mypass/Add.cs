@@ -38,7 +38,7 @@ namespace mypass
                 }
             }
 
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         //新增或者编辑保存
