@@ -33,9 +33,16 @@ namespace mypass.db
         //建库表
         public static bool CreateDb()
         {
-            string path = @System.Windows.Forms.Application.StartupPath + "\\res\\mypass.accdb";
+            string dir = @System.Windows.Forms.Application.StartupPath + "\\res";
+            string path = dir + "\\mypass.accdb";
             if (!File.Exists(path))
             {
+                //建目录
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
                 //建库
                 ADOX.Catalog catalog = new Catalog();
                 catalog.Create(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path

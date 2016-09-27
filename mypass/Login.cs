@@ -28,7 +28,7 @@ namespace mypass
             string password = textBox2.Text;
             
             var model = new User();
-            if (model.login(account, password) == 0)
+            if (model.login(account, password) != 0)
             {
                 var list = new List();
                 list.Show();
@@ -43,6 +43,24 @@ namespace mypass
         private void label3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        //回车登录
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.button1_Click(sender, e);
+            }
+        }
+
+        //回车切焦点
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
         }
     }
 }

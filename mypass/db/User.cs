@@ -80,17 +80,22 @@ namespace mypass.db
             OleDbCommand comm = new OleDbCommand(query, conn);
 
             var obj = comm.ExecuteScalar();
-            conn.Close();
-
+            int tag = 0;
+            
             if (obj!=null)
             {
                 Session.account = account;
                 Session.password = password;
-                return 1;
+
+                var update = "update 用户 set 登录时间='" + DateTime.Now + "' where 账户='" + account + "'";
+                OleDbCommand comm2 = new OleDbCommand(update, conn);
+                comm2.ExecuteNonQuery();
+                
+                tag = 1;
             }
-            else {
-                return 0;
-            }
+
+            conn.Close();
+            return tag;
         }
 
         //重设密码
@@ -106,10 +111,7 @@ namespace mypass.db
             OleDbConnection conn = Database.GetConnection();
             OleDbCommand comm = new OleDbCommand(query, conn);
 
-            var obj = comm.ExecuteScalar();
-            conn.Close();
-
-            if (obj != null)
+            if (comm.ExecuteNonQuery() > 0)
             {
                 Session.account = account;
                 return 1;
