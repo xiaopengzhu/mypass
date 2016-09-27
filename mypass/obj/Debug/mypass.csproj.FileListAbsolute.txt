@@ -29,3 +29,4 @@ D:\c#\mypass\mypass\obj\Debug\mypass.csproj.GenerateResource.Cache
 D:\c#\mypass\mypass\obj\Debug\mypass.Resetpwd.resources
 D:\c#\mypass\mypass\obj\Debug\mypass.About.resources
 D:\c#\mypass\mypass\obj\Debug\mypass.Register.resources
+D:\c#\mypass\mypass\obj\Debug\mypass.Detail.resources

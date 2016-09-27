@@ -18,8 +18,10 @@ namespace mypass
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //检测是否需要新建库
             Database.CreateDb();
 
+            //检测是否要重新注册
             var model = new User();
             if (model.check() == 0)
             {
