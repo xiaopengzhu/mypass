@@ -30,44 +30,32 @@ namespace mypass.db
             return conn;
         }
 
-        //判断数据库是否存在
-        //没有则新建
-        public static bool CheckDatabase()
+        //建库表
+        public static bool CreateDb()
         {
-            string path = @System.Windows.Forms.Application.StartupPath + "\\res\\mypass2.accdb";
+            string dir = @System.Windows.Forms.Application.StartupPath + "\\res";
+            string path = dir + "\\mypass.accdb";
             if (!File.Exists(path))
             {
+                //建目录
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
                 //建库
                 ADOX.Catalog catalog = new Catalog();
-                catalog.Create(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path 
-                    + " ;Jet OLEDB:Engine Type=5;Jet OLEDB:Database Password=mypass2016");
-                //建表
-                String connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;"
-                + @"Data Source=" + System.Windows.Forms.Application.StartupPath + "\\res\\mypass2.accdb;"
-                + "Jet OLEDB:Database Password=mypass2016";
-                OleDbConnection conn = new OleDbConnection(connectionString);
-                if (conn.ToString().Length > 0)
-                {
-                    //添加用户表
-                    Catalog cat = new Catalog();
-                    ADODB.Connection cn = new ADODB.Connection();
-                    cn.Open(connectionString, null, null, -1);
-                    catalog.ActiveConnection = cn;
-                    Table table = new Table();
-                    table.Name = "用户";
-                    catalog.Tables.Append(table);
-                    
+                catalog.Create(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path
+                + " ;Jet OLEDB:Engine Type=5;Jet OLEDB:Database Password=mypass2016");
 
+                //建用户表
+                var user = new User();
+                user.CreateTable();
 
-                    //添加记录表
+                var record = new Record();
+                record.CreateTable();
 
-                    cn.Close();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }      
+                return true; 
             }
             else
             {

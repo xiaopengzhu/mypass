@@ -17,7 +17,7 @@ namespace mypass
         public Resetpwd()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         //重设密码
